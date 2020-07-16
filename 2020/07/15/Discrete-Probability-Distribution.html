@@ -1,0 +1,918 @@
+<!DOCTYPE html>
+<html lang="en"><head>
+  <meta charset="utf-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1"><!-- Begin Jekyll SEO tag v2.6.1 -->
+<title>Title | fastpages</title>
+<meta name="generator" content="Jekyll v4.0.0" />
+<meta property="og:title" content="Title" />
+<meta property="og:locale" content="en_US" />
+<meta name="description" content="An easy to use blogging platform with support for Jupyter Notebooks." />
+<meta property="og:description" content="An easy to use blogging platform with support for Jupyter Notebooks." />
+<link rel="canonical" href="https://vijeth8.github.io/ai/2020/07/15/Discrete-Probability-Distribution.html" />
+<meta property="og:url" content="https://vijeth8.github.io/ai/2020/07/15/Discrete-Probability-Distribution.html" />
+<meta property="og:site_name" content="fastpages" />
+<meta property="og:type" content="article" />
+<meta property="article:published_time" content="2020-07-15T00:00:00-05:00" />
+<script type="application/ld+json">
+{"description":"An easy to use blogging platform with support for Jupyter Notebooks.","@type":"BlogPosting","headline":"Title","dateModified":"2020-07-15T00:00:00-05:00","datePublished":"2020-07-15T00:00:00-05:00","url":"https://vijeth8.github.io/ai/2020/07/15/Discrete-Probability-Distribution.html","mainEntityOfPage":{"@type":"WebPage","@id":"https://vijeth8.github.io/ai/2020/07/15/Discrete-Probability-Distribution.html"},"@context":"https://schema.org"}</script>
+<!-- End Jekyll SEO tag -->
+<link rel="stylesheet" href="/ai/assets/css/style.css"><link type="application/atom+xml" rel="alternate" href="https://vijeth8.github.io/ai/feed.xml" title="fastpages" /><link rel="shortcut icon" type="image/x-icon" href="/ai/images/favicon.ico"><!-- Begin Jekyll SEO tag v2.6.1 -->
+<title>Title | fastpages</title>
+<meta name="generator" content="Jekyll v4.0.0" />
+<meta property="og:title" content="Title" />
+<meta property="og:locale" content="en_US" />
+<meta name="description" content="An easy to use blogging platform with support for Jupyter Notebooks." />
+<meta property="og:description" content="An easy to use blogging platform with support for Jupyter Notebooks." />
+<link rel="canonical" href="https://vijeth8.github.io/ai/2020/07/15/Discrete-Probability-Distribution.html" />
+<meta property="og:url" content="https://vijeth8.github.io/ai/2020/07/15/Discrete-Probability-Distribution.html" />
+<meta property="og:site_name" content="fastpages" />
+<meta property="og:type" content="article" />
+<meta property="article:published_time" content="2020-07-15T00:00:00-05:00" />
+<script type="application/ld+json">
+{"description":"An easy to use blogging platform with support for Jupyter Notebooks.","@type":"BlogPosting","headline":"Title","dateModified":"2020-07-15T00:00:00-05:00","datePublished":"2020-07-15T00:00:00-05:00","url":"https://vijeth8.github.io/ai/2020/07/15/Discrete-Probability-Distribution.html","mainEntityOfPage":{"@type":"WebPage","@id":"https://vijeth8.github.io/ai/2020/07/15/Discrete-Probability-Distribution.html"},"@context":"https://schema.org"}</script>
+<!-- End Jekyll SEO tag -->
+
+<link href="https://unpkg.com/@primer/css/dist/primer.css" rel="stylesheet" />
+<link rel="stylesheet" href="//use.fontawesome.com/releases/v5.0.7/css/all.css"><link type="application/atom+xml" rel="alternate" href="https://vijeth8.github.io/ai/feed.xml" title="fastpages" />
+
+<script>
+function wrap_img(fn) {
+    if (document.attachEvent ? document.readyState === "complete" : document.readyState !== "loading") {
+        var elements = document.querySelectorAll(".post img");
+        Array.prototype.forEach.call(elements, function(el, i) {
+            if (el.getAttribute("title") && (el.className != "emoji")) {
+                const caption = document.createElement('figcaption');
+                var node = document.createTextNode(el.getAttribute("title"));
+                caption.appendChild(node);
+                const wrapper = document.createElement('figure');
+                wrapper.className = 'image';
+                el.parentNode.insertBefore(wrapper, el);
+                el.parentNode.removeChild(el);
+                wrapper.appendChild(el);
+                wrapper.appendChild(caption);
+            }
+        });
+    } else { document.addEventListener('DOMContentLoaded', fn); }
+}
+window.onload = wrap_img;
+</script>
+
+<script>
+    document.addEventListener("DOMContentLoaded", function(){
+    // add link icon to anchor tags
+    var elem = document.querySelectorAll(".anchor-link")
+    elem.forEach(e => (e.innerHTML = '<i class="fas fa-link fa-xs"></i>'));
+    });
+</script>
+</head><body><header class="site-header">
+
+  <div class="wrapper"><a class="site-title" rel="author" href="/ai/">fastpages</a><nav class="site-nav">
+        <input type="checkbox" id="nav-trigger" class="nav-trigger" />
+        <label for="nav-trigger">
+          <span class="menu-icon">
+            <svg viewBox="0 0 18 15" width="18px" height="15px">
+              <path d="M18,1.484c0,0.82-0.665,1.484-1.484,1.484H1.484C0.665,2.969,0,2.304,0,1.484l0,0C0,0.665,0.665,0,1.484,0 h15.032C17.335,0,18,0.665,18,1.484L18,1.484z M18,7.516C18,8.335,17.335,9,16.516,9H1.484C0.665,9,0,8.335,0,7.516l0,0 c0-0.82,0.665-1.484,1.484-1.484h15.032C17.335,6.031,18,6.696,18,7.516L18,7.516z M18,13.516C18,14.335,17.335,15,16.516,15H1.484 C0.665,15,0,14.335,0,13.516l0,0c0-0.82,0.665-1.483,1.484-1.483h15.032C17.335,12.031,18,12.695,18,13.516L18,13.516z"/>
+            </svg>
+          </span>
+        </label>
+
+        <div class="trigger"><a class="page-link" href="/ai/about/">About Me</a><a class="page-link" href="/ai/search/">Search</a><a class="page-link" href="/ai/categories/">Tags</a></div>
+      </nav></div>
+</header>
+<main class="page-content" aria-label="Content">
+      <div class="wrapper">
+        <article class="post h-entry" itemscope itemtype="http://schema.org/BlogPosting">
+
+  <header class="post-header">
+    <h1 class="post-title p-name" itemprop="name headline">Title</h1><p class="post-meta post-meta-title"><time class="dt-published" datetime="2020-07-15T00:00:00-05:00" itemprop="datePublished">
+        Jul 15, 2020
+      </time>
+       • <span class="read-time" title="Estimated read time">
+    
+    
+      9 min read
+    
+</span></p>
+
+    
+
+    
+      
+        <div class="pb-5 d-flex flex-wrap flex-justify-end">
+          <div class="px-2">
+
+    <a href="https://github.com/vijeth8/ai/tree/master/_notebooks/2020-07-15-Discrete-Probability-Distribution.ipynb" role="button" target="_blank">
+<img class="notebook-badge-image" src="/ai/assets/badges/github.svg" alt="View On GitHub">
+    </a>
+</div>
+
+          <div class="px-2">
+    <a href="https://mybinder.org/v2/gh/vijeth8/ai/master?filepath=_notebooks%2F2020-07-15-Discrete-Probability-Distribution.ipynb" target="_blank">
+        <img class="notebook-badge-image" src="/ai/assets/badges/binder.svg" alt="Open In Binder"/>
+    </a>
+</div>
+
+          <div class="px-2">
+    <a href="https://colab.research.google.com/github/vijeth8/ai/blob/master/_notebooks/2020-07-15-Discrete-Probability-Distribution.ipynb" target="_blank">
+        <img class="notebook-badge-image" src="/ai/assets/badges/colab.svg" alt="Open In Colab"/>
+    </a>
+</div>
+        </div>
+      </header>
+
+  <div class="post-content e-content" itemprop="articleBody">
+    <!--
+#################################################
+### THIS FILE WAS AUTOGENERATED! DO NOT EDIT! ###
+#################################################
+# file to edit: _notebooks/2020-07-15-Discrete-Probability-Distribution.ipynb
+-->
+
+<div class="container" id="notebook-container">
+        
+    
+    
+<div class="cell border-box-sizing code_cell rendered">
+
+</div>
+    
+
+<div class="cell border-box-sizing text_cell rendered"><div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<h2 id="Discrete-probability-distribution">Discrete probability distribution<a class="anchor-link" href="#Discrete-probability-distribution"> </a></h2>
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing text_cell rendered"><div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<h3 id="Random-variable">Random variable<a class="anchor-link" href="#Random-variable"> </a></h3><ul>
+<li>random variable is a quantitative variable whose value depends on chance in some way</li>
+</ul>
+
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing text_cell rendered"><div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<blockquote><p>X represnets the number of heads in 3 coin tosses</p>
+<p>X is a random variable that will take on one of the values:0,1,2 3&gt;
+represented using a capital vairalbe</p>
+</blockquote>
+
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing text_cell rendered"><div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<p>Discrete random variables can take on a coutable number of possible values</p>
+<blockquote><p>A finite (or countable infinite) number of possible values</p>
+</blockquote>
+<p>Continuous random variables can take on any value in a given interval</p>
+<blockquote><p>Infinite number of possible values</p>
+</blockquote>
+
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing text_cell rendered"><div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<h3 id="Examples-of-discrete:">Examples of discrete:<a class="anchor-link" href="#Examples-of-discrete:"> </a></h3><p>number of free throws an NBA player makes in next 20 attempts 
+possible values: 0, 1,2...20</p>
+<p>number of rolls of a die needed to roll a 3 fo rthe first time
+possibel values: 1,2,3 ... any whole num value (countably infiinte number of values)</p>
+<p>profit o a $1.5 bet on a black in roulette.
+possible values: -1.5 or 1.5 (countalbe possible values, can be negative and decimals)</p>
+
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing text_cell rendered"><div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<h3 id="Examples-of-continuous:">Examples of continuous:<a class="anchor-link" href="#Examples-of-continuous:"> </a></h3><p>velocity of the next pitch in major league baseball</p>
+<p>time between lightning strikes in a thunderstorm</p>
+<p>height, weight, length, time</p>
+<p>there are some important distinctions between discrete and continuous probability distributions</p>
+
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing text_cell rendered"><div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<h3 id="Probability-distribution-of-a-discrete-random-variable">Probability distribution of a discrete random variable<a class="anchor-link" href="#Probability-distribution-of-a-discrete-random-variable"> </a></h3><p>The probability distribution of a discrete random variable X is a listing of all possible values of X and their probabilities of occuring.</p>
+<p>approximately 60% of new born babies develop jaundice.</p>
+<p>suppose we sample 2 full-term newborn babies. X represnets the number of babies that developed jaundice.</p>
+<p>whats the probability distribution of X?</p>
+<p>we can have 0 1 or 2 values for X</p>
+<p>possible outcomes:</p>
+<table>
+<thead><tr>
+<th>Outcome</th>
+<th>JJ</th>
+<th>JN.</th>
+<th>NJ</th>
+<th>NN</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>value of x:</td>
+<td>2.</td>
+<td>1.</td>
+<td>1.</td>
+<td>0</td>
+</tr>
+<tr>
+<td>probability:</td>
+<td>0.6*0.6</td>
+<td>0.6*0.4</td>
+<td>0.4*0.6</td>
+<td>0.4*0.4</td>
+</tr>
+</tbody>
+</table>
+<table>
+<thead><tr>
+<th>x:</th>
+<th>0.</th>
+<th>1.</th>
+<th>2</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>p(x)</td>
+<td>0.16</td>
+<td>0.48</td>
+<td>0.36</td>
+</tr>
+</tbody>
+</table>
+
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing text_cell rendered"><div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<p>All discrete probability distributions must satisfify these conditions:</p>
+<blockquote><p>all probabilities must lie between 0 and 1</p>
+<p>sum of probabilities must equal 1</p>
+</blockquote>
+
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing text_cell rendered"><div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<p><figure>
+  
+    <img class="docimage" src="/ai/images/copied_from_nb/images/1.png" alt="" style="max-width: 400px" />
+    
+    
+</figure>
+</p>
+
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing text_cell rendered"><div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<p>probability mass function formula:</p>
+<p><figure>
+  
+    <img class="docimage" src="/ai/images/copied_from_nb/images/2.png" alt="" style="max-width: 400px" />
+    
+    
+</figure>
+</p>
+<p>there are many other type of common discrete probability distributions.</p>
+
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing text_cell rendered"><div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<hr />
+
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing text_cell rendered"><div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<h3 id="Expected-value-and-Variance">Expected value and Variance<a class="anchor-link" href="#Expected-value-and-Variance"> </a></h3><p>expected value (expectation) of a random variable is the theoretical mean of the random variable</p>
+<blockquote><p>E(X)  = $\mu$</p>
+</blockquote>
+<p>calculate expected value of discrete random variable X:E(X) = $\sum$ x.p(x) 
+expecttion of a function g(X):</p>
+<p>E[g(X)] = $\sum$ g(x) . p(x)</p>
+<p>weight avg of the probability of occuring</p>
+
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing text_cell rendered"><div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<p>variance of X: (expectation of the squared distance of X from its mean)</p>
+<p>$\sigma^2$ =  E[ (X - $\mu$)$^2$ ] = $\sum$ (x - $\mu$)$^2$ . p(x)</p>
+
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing text_cell rendered"><div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<p>handy relationshp:</p>
+<p>E[ (X - $\mu$)$^2$ ] =  E[ X$^2$ ] -  [E(X)]$^2$</p>
+<p>E[ (X - $\mu$)$^2$ ] =  E[ X$^2$ ] -  $\mu$$^2$</p>
+
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing text_cell rendered"><div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<h3 id="Problems:">Problems:<a class="anchor-link" href="#Problems:"> </a></h3>
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing text_cell rendered"><div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<table>
+<thead><tr>
+<th>x:</th>
+<th>0.</th>
+<th>1.</th>
+<th>2</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>p(x)</td>
+<td>0.16</td>
+<td>0.48</td>
+<td>0.36</td>
+</tr>
+</tbody>
+</table>
+<p>E(X) = $\sum$ x.p(x)</p>
+<p>= 0 <em> 0.16 + 1 </em> 0.48 + 2 * 0.36</p>
+<p>= 1.2</p>
+<blockquote><p>if we simulate a million values of X and take average of the values. we get 1.19986 (experimental validation)</p>
+<p>Law of large numbers :states that as a sample size grows, its mean gets closer to the average of the whole population</p>
+</blockquote>
+
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing text_cell rendered"><div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<hr />
+
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing text_cell rendered"><div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<p>lets find the expectation of a function of X: x$^2$</p>
+<p>E(X$^2$) = $\sum$ x$^2$ . p(x)</p>
+<p>= 1.92</p>
+
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing text_cell rendered"><div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<p>variance of X?</p>
+<p>$\sigma^2$ =  $\sum$ (x - $\mu$)$^2$ . p(x)</p>
+<p>= (0-1.2)$^2$ <em> 0.16 + (1-1.2)$^2$ </em>0.48 + (2-1.2)$^2$ * 0.36</p>
+<p>= 0.48</p>
+
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing text_cell rendered"><div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<p>E[ (X - $\mu$)$^2$ ] =  E[ X$^2$ ] -  $\mu$$^2$</p>
+<p>= 1.92 - 1.2$^2$</p>
+<p>= 0.48</p>
+
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing text_cell rendered"><div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<hr />
+
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing text_cell rendered"><div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<hr />
+
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing text_cell rendered"><div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<h2 id="Bernoulli-Distribution">Bernoulli Distribution<a class="anchor-link" href="#Bernoulli-Distribution"> </a></h2><blockquote><p>Toss a fair coin once. What is the distribution of the number of heads?</p>
+</blockquote>
+
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing text_cell rendered"><div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<h3 id="conditions:">conditions:<a class="anchor-link" href="#conditions:"> </a></h3><blockquote><p>single trial</p>
+<p>trial results in one of 2 possible outcomes:success/failure
+Independent, mutually exclusive outcomes (exhaustive also?)</p>
+<p>p(success) = p</p>
+<p>p(failure) = 1-p</p>
+</blockquote>
+
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing text_cell rendered"><div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<p>Let X = 1 if a success occurs &amp; X = 0 if a failure occures</p>
+<p>Then X has a Bernoulli distriburion:</p>
+<p>P(X = x) = p$^x$(1-p)$^1$$^-$$^x$</p>
+<p>for x = 0,1</p>
+<p>this is probability mass function of a bernoulli function</p>
+
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing text_cell rendered"><div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<hr />
+
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing text_cell rendered"><div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<p>mean:     $\mu$ = p</p>
+<p><figure>
+  
+    <img class="docimage" src="/ai/images/copied_from_nb/images/3.png" alt="" style="max-width: 400px" />
+    
+    
+</figure>
+</p>
+<p>variance: $\sigma$$^2$ = p(1-p)</p>
+<p><figure>
+  
+    <img class="docimage" src="/ai/images/copied_from_nb/images/4.png" alt="" style="max-width: 400px" />
+    
+    
+</figure>
+</p>
+<p><figure>
+  
+    <img class="docimage" src="/ai/images/copied_from_nb/images/5.png" alt="" style="max-width: 400px" />
+    
+    
+</figure>
+</p>
+
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing text_cell rendered"><div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<h3 id="Example:">Example:<a class="anchor-link" href="#Example:"> </a></h3><p>approximately 1 in 200 american adults are lawyers.</p>
+<p>one american adult is andomly selected.</p>
+<p>what is the distribuion of the number of lawyers?</p>
+<p>p(x=1) = 1/200</p>
+<p>p(x=0) = 199/200</p>
+
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing text_cell rendered"><div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<hr />
+
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing text_cell rendered"><div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<p>some other common discrete probability distributions are built on the assumption of independent Bernoulli trials.</p>
+<ol>
+<li>Binomial: distribution of number of successes in n independent bernoulli trials</li>
+</ol>
+<ol>
+<li>Geometric: distribution of number of trials to get a first success. in independent bernoulli trials </li>
+</ol>
+<ol>
+<li>Negative binomial: distribution of number of trials to get the rth success in independent bernoulli trials</li>
+</ol>
+
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing text_cell rendered"><div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<h2 id="Binomial-distribution">Binomial distribution<a class="anchor-link" href="#Binomial-distribution"> </a></h2><h4 id="The-number-of-successes-in-n-independent-Bernoulli-trails-has-a-binomial-distribution">The number of successes in n independent Bernoulli trails has a binomial distribution<a class="anchor-link" href="#The-number-of-successes-in-n-independent-Bernoulli-trails-has-a-binomial-distribution"> </a></h4><blockquote><p>A coin is flipped 100 times. What is the probability heads comes up at least 60 times?</p>
+<p>You buy a certain type of lottery ticket once a week for 4 weeks. What is the probability you win a cash prize exactly twice?</p>
+</blockquote>
+
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing text_cell rendered"><div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<h3 id="conditions:">conditions:<a class="anchor-link" href="#conditions:"> </a></h3><blockquote><p>There are n independent trials.</p>
+<p>Each trial can result in either success/failure</p>
+<p>P(success) = p and is constant from trial to traial</p>
+<p>P(fail) = 1-p</p>
+<p>X represents the number of successes in n trials.</p>
+</blockquote>
+
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing text_cell rendered"><div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<p>Then X has a binomial distribution:</p>
+<p>$P(X=x)   = {n \choose x} p^x (1-p)^{ n-x}$</p>
+<p>for x = 0,1,2,3...n</p>
+<p>combinations formula:</p>
+<p>${n \choose x} = \frac{n!}{x!(n-x)!)}$</p>
+
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing text_cell rendered"><div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<p>$\mu$ = E(X) = np</p>
+<p><figure>
+  
+    <img class="docimage" src="/ai/images/copied_from_nb/images/6.png" alt="" style="max-width: 400px" />
+    
+    
+</figure>
+</p>
+<p>$\sigma$ = np(1-p)</p>
+<p><figure>
+  
+    <img class="docimage" src="/ai/images/copied_from_nb/images/7.png" alt="" style="max-width: 400px" />
+    
+    
+</figure>
+</p>
+
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing text_cell rendered"><div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<hr />
+
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing text_cell rendered"><div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<p>Q: A balanced 6 sided die is rolled 3 times. What is the probability a 5 comes up exactly twice?</p>
+<p>A:  If asked what is a probability a 6 comes up once , 4 comes up once and 3 comes up once. this is not a bernoulli trial. a dice has 6 sides so more than one possibility. read the question carefully</p>
+<p>in our question</p>
+<p>success : rolling a 5</p>
+<p>failure: rolling any other number</p>
+
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing text_cell rendered"><div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<p>Let X represent number of 5s in 3 rolls</p>
+<p>X has a binomial distribution with n=3 and p=1/6</p>
+<p>$P(X=x)   = {3 \choose 2} (\frac{1}{6})^2 (1-\frac{1}{6})^{ 3-2}$</p>
+<p>= 0.0694</p>
+<p>reasoning:</p>
+<p>$p^x (1-p)^{ n-x}$ is the probability of one specific ordering of successes and failures.</p>
+<p>there are ${n \choose x}$ possible orderings</p>
+
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing text_cell rendered"><div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<hr />
+
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing text_cell rendered"><div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<p>The probability of a randomly selected 90 years old canadian male survives for another year is aproximately 0.82.</p>
+<p>If twenty 90-year old canadian males are randomly selected, what is the probability exactly 18 survive for atleast 
+another year</p>
+<p>p = 0.82</p>
+<p>${20 \choose 18} 0.82^{18} (1-0.82)^{20-18}$</p>
+<p>= 0.173</p>
+<p>Bonus:</p>
+<p>$\mu$ = np = 20*0.82 = 16.4</p>
+<p>so out of 20 randomly selected sample, on an average 16.4 of them will live for another year.</p>
+<p>$\sigma^2$ = np(1-p) = 2.952</p>
+<p>what is the probability that at least 18 survive for a year?</p>
+<p>${20 \choose 18} 0.82^{18} (1-0.82)^{20-18}$ + ${20 \choose 19} 0.82^{19} (1-0.82)^{20-19}$ + ${20 \choose 20} 0.82^{20} (1-0.82)^{20-20}$</p>
+<p>= 0.275</p>
+
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing text_cell rendered"><div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<h3 id="Binomial-/-Not-Binomial">Binomial / Not Binomial<a class="anchor-link" href="#Binomial-/-Not-Binomial"> </a></h3>
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing text_cell rendered"><div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<p>The probability a randomly selected 40 year old pregnant woman is carrying a fetus with down syndrome is approximately 0.01</p>
+<p>25 40 uear old pregnant women are randomly selected. What is the probability exactly 2 are carrying a fets with Down syndrome?</p>
+<p>YES</p>
+<p>X: number of pregnant women carrying a fetus with down syndrome</p>
+<p>n: 25</p>
+<p>p: 0.01</p>
+
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing text_cell rendered"><div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<hr />
+
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing text_cell rendered"><div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<p>Suppose an ordinary 6 sided die is rolled 16 times.</p>
+<p>What is the probability that on exactly 5 of the rolls, either a 3 or a 4 comes up?</p>
+<p>YES</p>
+<p>success : 3 or  4</p>
+<p>failure : 1,2,5,6</p>
+<p>Trials are independent</p>
+<p>p remains same for all trails</p>
+<p>X has binomial distribution.</p>
+<p>n = 16, p=2/6</p>
+
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing text_cell rendered"><div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<hr />
+
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing text_cell rendered"><div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<p>A die rolled until a 6 comes up 3 times.</p>
+<p>Let X represent the number of the trial on which the 3rd 6 appears.</p>
+<p>NO</p>
+<p>This is negative binomial distribution</p>
+
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing text_cell rendered"><div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<hr />
+
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing text_cell rendered"><div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<p>In a pool of 30 job applicants, 6 have a criminal record. you randomly select 8 from the 30 for an interview.</p>
+<p>what is the probability exactly 2 have a criminal record?</p>
+<p>NO</p>
+<p>first selected candidate has a probability of 6/30 of being criminal
+second selected candidate has a probability of 5/29.</p>
+<p>so the trails are not independent.</p>
+<p>this is a Hypergeometric distribution.</p>
+
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing text_cell rendered"><div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<hr />
+
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing text_cell rendered"><div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<p>The number of putts a PGA tour player makes in his next 10 putts.</p>
+<p>NO</p>
+<p>satisfied:</p>
+<p>fixed number trials 10</p>
+<p>outcomes are : they make it or miss it</p>
+<p>.</p>
+<p>.</p>
+<p>not satisfied:</p>
+<p>p is changing. all putts are not same. some are long some are short etc.</p>
+<p>all putts are not independent of one another. if a PGA player misses a putt , that influences the next shot</p>
+
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing text_cell rendered"><div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<hr />
+
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing text_cell rendered"><div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<p>Probability that there are exactly 8 lighting strikes in the first 5 minutes of the next thunderstorm?</p>
+<p>NO</p>
+<p>Not satisfied:</p>
+<p>we donot have a fixed number of trials</p>
+
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing text_cell rendered"><div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<hr />
+
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing text_cell rendered"><div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<h3 id="Hypergeometric-distribution">Hypergeometric distribution<a class="anchor-link" href="#Hypergeometric-distribution"> </a></h3><p>Suppose we are randomly sampling n objects without replacement from a source that contains "a" successes and "N-a" failures.</p>
+<p>random variable X represents the number of successes in the sample.</p>
+<p>Then X has the hypergeometric distribution:</p>
+<p><figure>
+  
+    <img class="docimage" src="/ai/images/copied_from_nb/images/9.png" alt="" style="max-width: 300px" />
+    
+    
+</figure>
+</p>
+<p><figure>
+  
+    <img class="docimage" src="/ai/images/copied_from_nb/images/8.png" alt="" style="max-width: 400px" />
+    
+    
+</figure>
+</p>
+
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing text_cell rendered"><div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<p>An urn contains 6 red balls and 14 yellow balls. 5 balls are randomly dawn without replcement. What is the probability exactly 4 red balls are drawn?</p>
+<p>trials are not independent. Binomial cannot be applies here.</p>
+<p><figure>
+  
+    <img class="docimage" src="/ai/images/copied_from_nb/images/10.png" alt="" style="max-width: 300px" />
+    
+    
+</figure>
+</p>
+
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing text_cell rendered"><div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<p>If sampling with replacement, using binomial distribution would be appropriate.</p>
+<p>P(4 red balls) = ${5 \choose 4} (6/20)^4 (1-6/20)^{5-4}$ = 0.02835</p>
+<p>as on any draw, p(red) = 6/20</p>
+
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing text_cell rendered"><div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<hr />
+
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing text_cell rendered"><div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<p>Suppose a large high school has 1100 female and 900 male students. A random sample of 10 students is draws.
+What is the probability exactly 7 of the selected students are female?</p>
+<p>num of objects sampled, n (with replacement doesn't make sense. without replacement is implied) = 10
+num of successes in population, a = 1100
+num of failuers in popularion, N-a = 900</p>
+<p><figure>
+  
+    <img class="docimage" src="/ai/images/copied_from_nb/images/11.png" alt="" style="max-width: 300px" />
+    
+    
+</figure>
+</p>
+
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing text_cell rendered"><div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<p>had we used binomial distribution:</p>
+<p>P(X=7) = ${10 \choose 7} (0.55)^7 (1-0.55)^{10-7}$ = 0.16648</p>
+
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing text_cell rendered"><div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<h3 id="Relation-between-Binomial-and-Hypergrometric">Relation between Binomial and Hypergrometric<a class="anchor-link" href="#Relation-between-Binomial-and-Hypergrometric"> </a></h3><p>As you can see we are pretty close to the hypergeometric answer. But in the urn example, we were far away.</p>
+<p>Binomial distribution can sometimes provide a reasonable approximation to the hypergeometric.</p>
+<p>rought guideline: if we are not sampling more than 5% of the population, the binomial provides a reasonable approximation.</p>
+<p>we do this because its easier to work with. after the first female sample in population. with/without sample isn't that different.</p>
+
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing text_cell rendered"><div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<hr />
+
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing text_cell rendered"><div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<p>Suppose a business employs 12 Democrats, 24 republicans and 8 independents. 
+If a random sample of 6 employees is drawn, what is the probability ther are 3 democrats, 2 republicans and 1 independent in the sample?</p>
+<p><figure>
+  
+    <img class="docimage" src="/ai/images/copied_from_nb/images/12.png" alt="" style="max-width: 200px" />
+    
+    
+</figure>
+</p>
+<p>so we can extened to more than 2 types of obects. multivariate hypergeometric</p>
+
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing text_cell rendered"><div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<h2 id="Poisson-distribution">Poisson distribution<a class="anchor-link" href="#Poisson-distribution"> </a></h2><p>Suppose we are counting the number of occurances of an event in a given unit of time, dstance, area, or volume.</p>
+<p>Then X, the number of events in a fixed unit of time, has a Poisson distribution.</p>
+<h3 id="example:">example:<a class="anchor-link" href="#example:"> </a></h3><ul>
+<li><p>The number of car accidents in a day.</p>
+</li>
+<li><p>Number of customers visiting</p>
+</li>
+</ul>
+<h3 id="conditions:">conditions:<a class="anchor-link" href="#conditions:"> </a></h3><ul>
+<li><p>events are occuring independently and randomly</p>
+</li>
+<li><p>the probability that event occurs in a given length of time doesn't change through time.</p>
+</li>
+</ul>
+
+</div>
+</div>
+</div>
+</div>
+
+
+
+  </div><a class="u-url" href="/ai/2020/07/15/Discrete-Probability-Distribution.html" hidden></a>
+</article>
+      </div>
+    </main><footer class="site-footer h-card">
+  <data class="u-url" href="/ai/"></data>
+
+  <div class="wrapper">
+
+    <div class="footer-col-wrapper">
+      <div class="footer-col">
+        <p class="feed-subscribe">
+          <a href="/ai/feed.xml">
+            <svg class="svg-icon orange">
+              <use xlink:href="/ai/assets/minima-social-icons.svg#rss"></use>
+            </svg><span>Subscribe</span>
+          </a>
+        </p>
+      </div>
+      <div class="footer-col">
+        <p>An easy to use blogging platform with support for Jupyter Notebooks.</p>
+      </div>
+    </div>
+
+    <div class="social-links"><ul class="social-media-list"><li><a rel="me" href="https://github.com/fastai" title="fastai"><svg class="svg-icon grey"><use xlink:href="/ai/assets/minima-social-icons.svg#github"></use></svg></a></li><li><a rel="me" href="https://twitter.com/fastdotai" title="fastdotai"><svg class="svg-icon grey"><use xlink:href="/ai/assets/minima-social-icons.svg#twitter"></use></svg></a></li></ul>
+</div>
+
+  </div>
+
+</footer>
+</body>
+
+</html>
