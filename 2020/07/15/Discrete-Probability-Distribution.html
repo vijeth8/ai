@@ -107,7 +107,7 @@ window.onload = wrap_img;
        • <span class="read-time" title="Estimated read time">
     
     
-      10 min read
+      16 min read
     
 </span></p>
 
@@ -899,6 +899,40 @@ If a random sample of 6 employees is drawn, what is the probability ther are 3 d
 </div>
 <div class="cell border-box-sizing text_cell rendered"><div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
+<h3 id="Poisson-or-not?">Poisson or not?<a class="anchor-link" href="#Poisson-or-not?"> </a></h3><ul>
+<li>Number of chocolate chips in a scoop of cookie dough</li>
+</ul>
+<blockquote><p>YES. (chocolate chips in a given volume of dough) (if the cookies are randomly and independently distributed in the dough)</p>
+</blockquote>
+<ul>
+<li>avg weight of customers arriving at a store in 10 min period</li>
+</ul>
+<blockquote><p>avg weight is a random variable. but it is not a count of events. so NO</p>
+</blockquote>
+<ul>
+<li>number of deaths from horse kicks in the prussian army in a year</li>
+</ul>
+<blockquote><p>YES (assuimg deaths are independent of )</p>
+</blockquote>
+<p><figure>
+  
+    <img class="docimage" src="/ai/images/copied_from_nb/images/18.png" alt="" style="max-width: 500px" />
+    
+    
+</figure>
+</p>
+<ul>
+<li>During the week,students enter a university center at an avg rate of 20 per min. What is the probability that in a randomly selected 5 min period, exactly 90 arrive?</li>
+</ul>
+<blockquote><p>It might be tempting to assume poisson distribution here. But are students arriving randomly, they arrive during class hours and nill during night. and they come in groups</p>
+<p><em>if they came single at an equal 1 min inter apart one after the other,<strong>not a Poisson</strong> process. because it is not random</em></p>
+</blockquote>
+
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing text_cell rendered"><div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
 <p>One nanogram of Plutonium will have an avg of 2.3 radioactive decays per second, and the number of decay will follow a poisson distribution.</p>
 <p>What is the probability that in a 2 sec period there are exactly 3 radioactive decays?</p>
 <p>X: number of decays in 2 seconds</p>
@@ -954,23 +988,271 @@ $$ = 0.163 $$
 </div>
 </div>
 </div>
-    
-    
-<div class="cell border-box-sizing code_cell rendered">
-<div class="input">
+<div class="cell border-box-sizing text_cell rendered"><div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<h3 id="Example">Example<a class="anchor-link" href="#Example"> </a></h3><blockquote><p>Albanism is a rare genetic disorder that affects 1 in 20_000 europeans. People with albinism produce little or none of the pigment melanin
+In a random sample of 1000 europeans, what is the probability that exactly 2 have albinism?</p>
+<p>Binonial:&gt;&gt; sampled random and independent, n = 1000, p=1/20_000</p>
+<p>p(X=2) = ${1000 \choose 2} (\frac{1}{20000})^2 (1 - \frac{1}{20000})^{1000-2}$ = 0.00118796</p>
+<p>Poisson:&gt;&gt; $\lambda = np = 1000* \frac{1}{20000} = 0.05$</p>
+<p>$ P(X=2) = \frac{0.05^2 * e^{-0.05}}{2!} $ = 0.00118903</p>
+<p>Value of Poisson and Binomial is close becuse of large n and small p</p>
+<p>Rough Gudline:&gt;&gt; Poisson approximation is reasonable if n&gt;50 and np&lt;5</p>
+<p>Why use this approximation?</p>
+<p>The factorials &amp; exponentials in the binomial formula can become hard to compute</p>
+<p>A problem may be binomial conceptually. but n &amp; p may be unknown. If you know the mean number of occurances, we can call it lambda . given n is large and a small p (but we don't need to know what the acutal values are. we just need the $\lambda$ = mean)</p>
+</blockquote>
 
-<div class="inner_cell">
-    <div class="input_area">
-<div class=" highlight hl-ipython3"><pre><span></span> 
-</pre></div>
-
-    </div>
 </div>
 </div>
+</div>
+<div class="cell border-box-sizing text_cell rendered"><div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<h2 id="Geometric-Distribution">Geometric Distribution<a class="anchor-link" href="#Geometric-Distribution"> </a></h2><blockquote><p>Distribution of the number of trials needed to get the first success in repeated  indepepdent <strong>Bernoulli</strong> trials</p>
+</blockquote>
 
 </div>
-    
+</div>
+</div>
+<div class="cell border-box-sizing text_cell rendered"><div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<h4 id="Conditions:">Conditions:<a class="anchor-link" href="#Conditions:"> </a></h4><blockquote><p>Independent trials</p>
+<p>Trials results in success/failure</p>
+<p>P(success) = p and this stays constant t rail to trial</p>
+<p>p(failure) = 1-p</p>
+<p>X represents the number of trials needed to get first success</p>
+</blockquote>
 
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing text_cell rendered"><div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<p>for first success to occur on xth trial:</p>
+<ol>
+<li>The first x-1 trials must be failures. $((1-p)^{x-1})$</li>
+<li>xth trial must be a success. p</li>
+</ol>
+<p>P(X=x) = $(1-p)^{x-1}$ . p</p>
+<ul>
+<li>Single parameter p (probability of success)</li>
+</ul>
+<p>$\mu = \frac{1}{p}$</p>
+<p>$\sigma^2 = \frac{1-p}{p^2}$</p>
+
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing text_cell rendered"><div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<h4 id="Example-:">Example :<a class="anchor-link" href="#Example-:"> </a></h4><blockquote><p><em>In a large population of adults, 30% have received CPR training.
+If adults are randomly selected, what is the probability that the 6th person sampled is the first that has recieved CPT training?</em></p>
+<p>p =0.3</p>
+<p>P(X=6) = $(1-0.3)^{6-1}$ * 0.3</p>
+<p>= 0.0504</p>
+</blockquote>
+
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing text_cell rendered"><div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<p>Geometric distribution is right skewed</p>
+<p><figure>
+  
+    <img class="docimage" src="/ai/images/copied_from_nb/images/15.png" alt="" style="max-width: 400px" />
+    
+    
+</figure>
+</p>
+
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing text_cell rendered"><div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<p>What is the probability that the first person trained in CPR occurs on or before the 3rd person sampled?</p>
+<p>p(x&lt;=3) = p(x=1) + p(x=2) + p(x=3)</p>
+<p>= $0.7^0 * 0.3 + 0.7 * 0.3 + 0.7^2 * 0.3$</p>
+<p>= 0.657</p>
+
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing text_cell rendered"><div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<p>this would become hard to calculate large number of probabilities.</p>
+<p>we can instead calulate using cumulative distributio function.</p>
+<p>p(x&gt;3) = probability of getting 3 failures in a row = $0.7^3$</p>
+<p>so p(x&lt;=3) = 1 - $0.7^3$ = 0.657</p>
+
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing text_cell rendered"><div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<h2 id="Negative-Binomial-Distribution">Negative Binomial Distribution<a class="anchor-link" href="#Negative-Binomial-Distribution"> </a></h2><h2 id="&gt;-Geometric-destribution-is-for-number-of-trials-needed-to-get-the-first-success-in-repeated-independednt-bernoulli-trials.">&gt; Geometric destribution is for number of trials needed to get the first success in repeated independednt bernoulli trials.<a class="anchor-link" href="#&gt;-Geometric-destribution-is-for-number-of-trials-needed-to-get-the-first-success-in-repeated-independednt-bernoulli-trials."> </a></h2><blockquote><p>The negative binomial distribution is the distribution of the number of trials needed to get rth success</p>
+<p>fixed:num of independent trials&gt; &gt;random var, X:number of successes ---
+Binolial disttibution is distribution of number of successes in a fixed number of independent Bernoulli trials.</p>
+<p>fixed :number of successes&gt; &gt;random var, X:number of trials needed to get that number of successes&gt; &gt; eg:A coin is tossed repeatedly unitl heads comes up for 6th time.What is the probability this happens on the 15th toss?</p>
+</blockquote>
+
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing text_cell rendered"><div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<h3 id="Conditions:">Conditions:<a class="anchor-link" href="#Conditions:"> </a></h3><blockquote><p>there are independent trials</p>
+<p>trails result in success/failure</p>
+<p>p(success) = p and this stays constant trial to trial</p>
+<p>p(failure) = 1-p</p>
+<p>X represents trial number of the rth success</p>
+<p>For rth success to occur on the xth trial:&gt;&gt;- The first x-1 trials must result in r-1 successes.</p>
+<p>${x-1 \choose r-1} p^{r-1} (1-p)^{(x-1)-(r-1)}$ , for x = r, r+1, . . .</p>
+<ul>
+<li>xth trial must be a success, which has a probability of p</li>
+</ul>
+</blockquote>
+
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing text_cell rendered"><div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<h3 id="Example:">Example:<a class="anchor-link" href="#Example:"> </a></h3><blockquote><p>A person conduction telephone surveys must get 3 more completed surveys before their job is finished.
+On each randomly dailed number, there is a 9% chance of reaching an adult who will complete the survey. 
+What is the probability that 3rd completed survey occurs on the 10th call?</p>
+<p>Knowing outcome of one call doesn't influence other call. so independent
+we get either success/failure</p>
+<p>p = 0.09
+x = 10
+r = 3</p>
+<p>${10-1 \choose 3-1} 0.09^{3-1} (1-0.09)^{(10-1)-(3-1)}$</p>
+<p>= 0.01356</p>
+</blockquote>
+
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing text_cell rendered"><div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<p><figure>
+  
+    <img class="docimage" src="/ai/images/copied_from_nb/images/16.png" alt="" style="max-width: 400px" />
+    
+    
+</figure>
+</p>
+
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing text_cell rendered"><div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<h2 id="Multinomial-distribution">Multinomial distribution<a class="anchor-link" href="#Multinomial-distribution"> </a></h2><p>This is a generalization of a binomial distribution.</p>
+<p>In binomial outcomes are success/failure. But in Multinomial the outcomes of a given trail is allowed to be greater than 2.</p>
+
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing text_cell rendered"><div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<h3 id="Conditions:">Conditions:<a class="anchor-link" href="#Conditions:"> </a></h3><ul>
+<li><p>There are n independent trials.</p>
+</li>
+<li><p>Each trial results in one of k mutually exclusive outcomes.</p>
+</li>
+<li><p>On any single trial, these k outcomes occur with probabilities p1,...pk</p>
+</li>
+<li><p>$\sum_{i=1}^{k} p_i$ = 1</p>
+</li>
+<li><p>p constant trial to trial</p>
+</li>
+<li><p>Let random variable $X_i$ represent the number of occurances of outcome i.</p>
+</li>
+</ul>
+<p>P($X_1$ = $x_1$, ..., $X_k$= $x_k$) = $\frac{n!}{x_1!...x_k!}$ $p_1^{x_1}$...$p_k^{x_k}$</p>
+
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing text_cell rendered"><div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<h3 id="Example:">Example:<a class="anchor-link" href="#Example:"> </a></h3><p>An urn contains 8 red balls, 3 yellow balls &amp; 9 white balls. 6 balls are randomly seletedt <strong>with replacement</strong>. What is the probability 2 are red, 1 is yellow and 3 are white?</p>
+<p>probability of picking any color ball is constat &amp; independent</p>
+<p>P(x1=2,x2=1,x3=3) = $\frac{6!}{2! * 1! * 3!} (\frac{8}{20})^2 (\frac{3}{20})^1 (\frac{9}{20})^3$</p>
+<p>= 0.13122</p>
+
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing text_cell rendered"><div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<p><figure>
+  
+    <img class="docimage" src="/ai/images/copied_from_nb/images/17.png" alt="" style="max-width: 400px" />
+    
+    
+</figure>
+</p>
+<p>P(x1=6, x2=2, x3=1, x4=1) = $\frac{10!}{6!  2!  1!  1!} (0.44^6 * 0.42^2 * 0.1 * 0.04)$</p>
+<p>= 0.01290</p>
+
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing text_cell rendered"><div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<p><figure>
+  
+    <img class="docimage" src="/ai/images/copied_from_nb/images/22.png" alt="" style="max-width: 400px" />
+    
+    
+</figure>
+</p>
+
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing text_cell rendered"><div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<h2 id="Summary">Summary<a class="anchor-link" href="#Summary"> </a></h2><p><figure>
+  
+    <img class="docimage" src="/ai/images/copied_from_nb/images/19.png" alt="" style="max-width: 600px" />
+    
+    
+</figure>
+</p>
+
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing text_cell rendered"><div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<p><figure>
+  
+    <img class="docimage" src="/ai/images/copied_from_nb/images/20.png" alt="" style="max-width: 600px" />
+    
+    
+</figure>
+</p>
+
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing text_cell rendered"><div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<p><figure>
+  
+    <img class="docimage" src="/ai/images/copied_from_nb/images/20.png" alt="" style="max-width: 600px" />
+    
+    
+</figure>
+</p>
+
+</div>
+</div>
+</div>
 </div>
 
 
